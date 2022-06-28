@@ -53,4 +53,6 @@ const showFormattedDate = (date) => {
   return new Date(date).toLocaleDateString("id-ID", options)
 }
 
-export { getInitialData, showFormattedDate };
+const getInitialDataEmpty = () => ([])
+
+export { getInitialData, showFormattedDate, getInitialDataEmpty };
