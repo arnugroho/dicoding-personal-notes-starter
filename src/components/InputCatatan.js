@@ -1,7 +1,7 @@
 
 import {useEffect, useState} from "react";
 
-const InputCatatan = () => {
+const InputCatatan = (props) => {
 
     const [catatan, setCatatan] = useState({
         id: '',
@@ -10,6 +10,7 @@ const InputCatatan = () => {
         archived: false,
         createdAt: ''
     })
+    const [callData, setCallData] = useState(false)
 
     const onChangeInput = event =>{
         const {name, value} = event.target;
@@ -18,9 +19,15 @@ const InputCatatan = () => {
 
     const onBuatCatatan = () => {
         setCatatan(prevState => ({...prevState, ['id']: +new Date(), ['createdAt']: ''+new Date()}));
+        setCallData(!callData)
     }
 
     useEffect(() => {
+        if (callData) {
+            props.callbackData(prev => [...prev, catatan])
+            setCallData(!callData)
+        }
+
         console.log(catatan)
     },[catatan])
 
