@@ -15,26 +15,26 @@ function App() {
     if (datas.length > 0) {
         return (
 
-            <body className="note-app__body">
+            <div className="note-app__body">
 
-            <InputCatatan/>
+                <InputCatatan/>
 
-            <h2>Catatan Aktif</h2>
-            <div className="notes-list">
-                {
-                    datas.map((data) => (
-                        <CardCatatan catatan={data} key={data.id}/>
-                    ))
-                }
+                <h2>Catatan Aktif</h2>
+                <div className="notes-list">
+                    {
+                        datas.map((data) => (
+                            <CardCatatan catatan={data} key={data.id}/>
+                        ))
+                    }
+                </div>
             </div>
-            </body>
         )
     } else {
         return (
-            <body className="note-app__body">
-            <h2>Catatan Aktif</h2>
-            <div className="notes-list__empty-message">Catatan TIdak Ada</div>
-            </body>
+            <div className="note-app__body">
+                <h2>Catatan Aktif</h2>
+                <div className="notes-list__empty-message">Catatan TIdak Ada</div>
+            </div>
         )
     }
 }
