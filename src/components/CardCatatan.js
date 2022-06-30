@@ -1,7 +1,10 @@
 import {showFormattedDate} from "../utils";
 
 
-const CardCatatan = ({catatan}) => {
+const CardCatatan = ({catatan, callbackDeleteData}) => {
+    const deleteCatatan = () => {
+        callbackDeleteData(catatan.id)
+    }
     return (
         <div>
             <div className="note-item">
@@ -14,7 +17,7 @@ const CardCatatan = ({catatan}) => {
                     </div>
 
                     <div className="note-item__action">
-                        <button className="note-item__delete-button">Delete</button>
+                        <button type="button" onClick={deleteCatatan} className="note-item__delete-button">Delete</button>
                         <button className="note-item__archive-button">Arsipkan</button>
                     </div>
                 </div>

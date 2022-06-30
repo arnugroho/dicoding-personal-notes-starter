@@ -11,7 +11,7 @@ const InputCatatan = (props) => {
         createdAt: ''
     })
     const inputConfig = {
-        maxTitle: 5
+        maxTitle: 50
     }
 
     const [callData, setCallData] = useState(false)
@@ -41,8 +41,6 @@ const InputCatatan = (props) => {
             props.callbackData(prev => [...prev, catatan])
             setCallData(!callData)
         }
-
-        console.log(catatan)
     },[catatan])
 
     return (
