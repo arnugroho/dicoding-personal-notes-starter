@@ -10,11 +10,25 @@ const InputCatatan = (props) => {
         archived: false,
         createdAt: ''
     })
+    const inputConfig = {
+        maxTitle: 5
+    }
+
     const [callData, setCallData] = useState(false)
 
     const onChangeInput = event =>{
         const {name, value} = event.target;
-        setCatatan(prevState => ({...prevState, [name]: value}));
+        if(validation(name)) {
+            setCatatan(prevState => ({...prevState, [name]: value}));
+        }
+    }
+
+    const validation = (name) => {
+        let isValid = true;
+        if(catatan.title.length === inputConfig.maxTitle && name === "title") {
+            isValid =  false
+        }
+        return isValid
     }
 
     const onBuatCatatan = () => {
@@ -34,10 +48,10 @@ const InputCatatan = (props) => {
     return (
         <div className="note-input">
             <div className="note-input__title">
-                input
+                Buat Catatan
             </div>
             <div className="note-input__title__char-limit">
-                .... nilai
+                Sisa Karakter : {inputConfig.maxTitle - catatan.title.length}
             </div>
             <div className="note-input__body">
                 <form>
