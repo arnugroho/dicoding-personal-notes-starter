@@ -2,6 +2,7 @@ import CardCatatan from "./CardCatatan";
 import '../styles/style.css'
 import {getInitialData, getInitialDataEmpty} from "../utils";
 import React from "react";
+import InputCatatan from "./InputCatatan";
 
 
 function App() {
@@ -15,6 +16,9 @@ function App() {
         return (
 
             <body className="note-app__body">
+
+            <InputCatatan/>
+
             <h2>Catatan Aktif</h2>
             <div className="notes-list">
                 {
@@ -28,8 +32,8 @@ function App() {
     } else {
         return (
             <body className="note-app__body">
-                <h2>Catatan Aktif</h2>
-                <div className="notes-list__empty-message">Catatan TIdak Ada</div>
+            <h2>Catatan Aktif</h2>
+            <div className="notes-list__empty-message">Catatan TIdak Ada</div>
             </body>
         )
     }
